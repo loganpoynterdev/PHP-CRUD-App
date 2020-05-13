@@ -1,0 +1,6 @@
+/vendor
+.env
+composer.json
+composer.lock
+composer.php
+composer.phar

@@ -2,16 +2,13 @@
     <head>
     <title>PHP CRUD App</title>
     <?php 
-    require __DIR__ . '/vendor/autoload.php';
-
-    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-    $dotenv->load();
+    
 
     //db credentials from .env
-    $servername = getenv('SERVER');
-    $username = getenv('USERNAME');
-    $password = getenv('PASSWORD');
-    $dbname = getenv('DATABASE'); 
+    $servername = 'mariadb';
+    $username = 'testuser';
+    $password = 'testpassword';
+    $dbname = 'testdb'; 
 
     //establish db connection
     $conn = new mysqli($servername, $username, $password, $dbname);

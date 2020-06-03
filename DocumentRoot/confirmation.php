@@ -2,33 +2,25 @@
     <head>
     <title>PHP CRUD App</title>
     <?php 
-    require __DIR__ . '/vendor/autoload.php';
-
-    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-    $dotenv->load();
-
     //db credentials from .env
-    $servername = getenv('SERVER');
-    $username = getenv('USERNAME');
-    $password = getenv('PASSWORD');
-    $dbname = getenv('DATABASE'); 
+    $servername = 'mariadb';
+    $username = 'testuser';
+    $password = 'testpassword';
+    $dbname = 'testdb'; 
 
+    
     //establish db connection
     $conn = new mysqli($servername, $username, $password, $dbname);
-
+    
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    if ($_POST['fname'] != NULL){$fName = $_POST['fname'];}
-    if ($_POST['lname'] != NULL){$lName = $_POST['lname'];}
-    if ($_POST['age'] != NULL){$age = $_POST['age'];}
-    if ($_POST['gender'] != NULL){$gender = $_POST['gender'];}
+    if ($_POST['uid'] != NULL){$uid = $_POST['uid'];}
 
     //structure sql query
-    $sql = "INSERT INTO project9
-    VALUES ('', '$fName', '$lName', '$age', '$gender')";
+    $sql = "DELETE FROM project9 WHERE userID = '$uid' ";
 
     ?>
     <!-- render nav -->
@@ -44,7 +36,7 @@
         <div class="content">
             <?php 
             if ($conn->query($sql) === TRUE) {
-        echo "Record created successfully";
+        echo "Record with user ID $uid deleted successfully";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }

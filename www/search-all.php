@@ -3,10 +3,10 @@
     <title>PHP CRUD App</title>
     <?php 
     //db credentials from .env
-    $servername = 'mariadb';
+    $servername = 'mysql';
     $username = 'testuser';
     $password = 'testpassword';
-    $dbname = 'testdb';  
+    $dbname = 'students';  
 
     //establish db connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -17,7 +17,7 @@
     }
 
     //structure sql query
-    $sql = "SELECT * FROM project9 ";
+    $sql = "SELECT * FROM people ";
     $result = $conn->query($sql);
     ?>
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -36,7 +36,7 @@
         // output data of each row
         while($row = $result->fetch_assoc()) {
             echo "<tr><td>"
-            .$row["userID"]."</td><td>"
+            .$row["peopleID"]."</td><td>"
             .$row["fName"]."</td><td>"
             .$row["lName"]."</td><td>" 
             .$row["age"]."</td><td>"

@@ -3,10 +3,10 @@
     <title>PHP CRUD App</title>
     <?php 
     //db credentials from .env
-    $servername = 'mariadb';
+    $servername = 'mysql';
     $username = 'testuser';
     $password = 'testpassword';
-    $dbname = 'testdb'; 
+    $dbname = 'students';   
 
     
     //establish db connection
@@ -20,7 +20,7 @@
     if ($_POST['uid'] != NULL){$uid = $_POST['uid'];}
 
     //structure sql query
-    $sql = "DELETE FROM project9 WHERE userID = '$uid' ";
+    $sql = "DELETE FROM people WHERE peopleID = '$uid' ";
 
     ?>
     <!-- render nav -->

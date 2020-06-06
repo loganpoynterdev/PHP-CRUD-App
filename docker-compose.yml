@@ -8,23 +8,20 @@ services:
     volumes:
       - './www:/var/www/html'
 
-  mariadb:
-    image: mariadb:10.5.2
+  mysql:
+    build: ./mysql
     volumes:
-      - mariadb-volume:/var/lib/mysql
+      - mysql-volume:/var/lib/mysql
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: 'no'
-      MYSQL_ROOT_PASSWORD: 'rootpwd'
-      MYSQL_USER: 'testuser'
-      MYSQL_PASSWORD: 'testpassword'
-      MYSQL_DATABASE: 'testdb'
+      MYSQL_ROOT_PASSWORD: 'root'
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     links:
-      - 'mariadb:db'
+      - 'mysql:db'
     ports:
       - 8081:80
 
 volumes:
-  mariadb-volume:
+  mysql-volume:

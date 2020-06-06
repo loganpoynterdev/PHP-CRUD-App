@@ -5,10 +5,10 @@
     
 
     //db credentials from .env
-    $servername = 'mariadb';
+    $servername = 'mysql';
     $username = 'testuser';
     $password = 'testpassword';
-    $dbname = 'testdb'; 
+    $dbname = 'students';  
 
     //establish db connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -22,7 +22,7 @@
     if ($_POST['search'] != NULL){$search = $_POST['search'];}
 
     //structure sql query
-    $sql = "SELECT * FROM project9 WHERE $records_opt = '$search' ";
+    $sql = "SELECT * FROM people WHERE $records_opt = '$search' ";
     $result = $conn->query($sql);
     ?>
     <!-- render nav -->
@@ -42,7 +42,7 @@
         // output data of each row
         while($row = $result->fetch_assoc()) {
             echo "<tr><td>"
-            .$row["userID"]."</td><td>"
+            .$row["peopleID"]."</td><td>"
             .$row["fName"]."</td><td>"
             .$row["lName"]."</td><td>" 
             .$row["age"]."</td><td>"

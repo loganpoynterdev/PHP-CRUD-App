@@ -14,7 +14,7 @@
   <form action='search-results.php' method='post'>
   <h2>Search for records</h2>
   <select name='records' id='records'>
-    <option value='userID'>User ID</option>
+    <option value='peopleID'>User ID</option>
     <option value='fName'>First Name</option>
     <option value='lName'>Last Name</option>
     <option value='age'>Age</option>

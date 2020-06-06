@@ -14,7 +14,7 @@
   <form action='results.php' method='post'>
   <h2>Delete A Record</h2>
   <select name='records' id='records'>
-    <option value='userID'>User ID</option>
+    <option value='peopleID'>User ID</option>
     <option value='fName'>First Name</option>
     <option value='lName'>Last Name</option>
     <option value='age'>Age</option>

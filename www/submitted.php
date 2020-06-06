@@ -2,11 +2,11 @@
     <head>
     <title>PHP CRUD App</title>
     <?php 
-    //db credentials from .env
-    $servername = 'mariadb';
+    
+    $servername = 'mysql';
     $username = 'testuser';
     $password = 'testpassword';
-    $dbname = 'testdb';  
+    $dbname = 'students';   
 
     //establish db connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -22,8 +22,8 @@
     if ($_POST['gender'] != NULL){$gender = $_POST['gender'];}
 
     //structure sql query
-    $sql = "INSERT INTO project9
-    VALUES ('', '$fName', '$lName', '$age', '$gender')";
+    $sql = "INSERT INTO people 
+    VALUES (NULL, '$fName', '$lName', '$age', '$gender')";
 
     ?>
     <!-- render nav -->
